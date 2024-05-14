@@ -1,4 +1,6 @@
 ﻿using SuperMarket.Helpers;
+using SuperMarket.Models;
+using SuperMarket.Models.BusinessLogicLayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +14,7 @@ namespace SuperMarket.ViewModels
     public class LoginViewModel : BasePropertyChanged
     {
         //Fields
+        private UserBLL _userBLL { get; set; }
         private string _username;
         private SecureString _password;
         private string _errorMessage;
@@ -62,7 +65,9 @@ namespace SuperMarket.ViewModels
         private bool CanExecuteLoginCommand(object obj)
         {
             bool validDate;
-            if (string.IsNullOrEmpty(Username) || Username.Length < 3 || Password == null || Password.Length < 3)
+            List<User> users = _userBLL.GetAllUsers();
+            var result = users.Where(p => p.Name == Username);
+            if (result == null)
             {
                 validDate = false;
             }
@@ -75,7 +80,12 @@ namespace SuperMarket.ViewModels
 
         private void ExecuteLoginCommnad(object obj)
         {
-            throw new NotImplementedException();
+            List<User> users = _userBLL.GetAllUsers();
+            var result = users.Where(p => p.Name == Username);
+            if (result.First().Type == 0)
+            {
+                
+            }
         }
     }
 }

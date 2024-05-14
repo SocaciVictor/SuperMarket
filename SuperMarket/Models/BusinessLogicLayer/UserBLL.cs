@@ -12,5 +12,12 @@ namespace SuperMarket.Models.BusinessLogicLayer
     {
         private SupermarketDBContext context = new SupermarketDBContext();
         public ObservableCollection<User> UsersList { get; set; }
+
+        public string ErrorMessage { get; set; }
+
+        public List<User> GetAllUsers()
+        {
+            return context.Users.ToList();
+        }
     }
 }

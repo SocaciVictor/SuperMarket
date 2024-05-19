@@ -15,9 +15,15 @@ namespace SuperMarket.Models.BusinessLogicLayer
 
         public string ErrorMessage { get; set; }
 
+        public UserBLL()
+        {
+            UsersList = new ObservableCollection<User>();
+        }
+
         public List<User> GetAllUsers()
         {
-            return context.Users.ToList();
+            var result = context.Users.ToList();
+            return result;
         }
     }
 }

@@ -18,6 +18,8 @@ namespace SuperMarket.Models
 
         public float Subtotal { get; set; }
 
+        public bool IsActive { get; set; } = true;
+
         public Receipt Receipt { get; set; }
 
         public Product Product { get; set; }

@@ -16,7 +16,9 @@ namespace SuperMarket.Models
 
         public float ReceiptAmount { get; set; }
         
-        public User User { get; set; }  
+        public User User { get; set; }
+
+        public bool IsActive { get; set; } = true;
 
         List<ReceiptDetail> ReceiptDetails { get; set; } 
     }

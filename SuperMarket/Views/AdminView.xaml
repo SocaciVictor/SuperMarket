@@ -4,9 +4,102 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SuperMarket.Views"
+        xmlns:viewModel="clr-namespace:SuperMarket.ViewModels"
         mc:Ignorable="d"
-        Title="AdminView" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="AdminView" Height="450" Width="800"
+         WindowStyle="None"
+         ResizeMode="NoResize"
+         WindowStartupLocation="CenterScreen"
+         Background="Transparent"
+         AllowsTransparency="True"
+         MouseDown="Window_MouseDown">
+    <Window.DataContext>
+        <viewModel:AdminViewModel />
+    </Window.DataContext>
+
+    <Border CornerRadius="50">
+
+        <Border CornerRadius="20"
+              Background="#C3FF93"
+              BorderBrush="#8DECB4"
+              BorderThickness="5"
+              >
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="6"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="Admin"
+                         Foreground="White"
+                         FontSize="20"
+                         FontFamily="Montserrat"
+                         Grid.Column="0"
+                         VerticalAlignment="Center"
+                         Margin="10,0,0,0"/>
+
+                <Button x:Name="btnMinimize"
+                      Background="#FFF455"
+                      BorderThickness="0"
+                      Content="-"
+                      Foreground="White"
+                      FontSize="16"
+                      FontFamily="Montserrat"
+                      Cursor="Hand"
+                      Grid.Column="1"
+                      Click="btnMinimize_Click"/>
+
+                <Button x:Name="btnClose"
+                       Background="#FFF455"
+                       BorderThickness="0"
+                       Content="X"
+                       Foreground="White"
+                       FontSize="12"
+                       FontFamily="Montserrat"
+                       Cursor="Hand"
+                       Grid.Column="2"
+                       Click="btnClose_Click"/>
+
+                <StackPanel Grid.Row="2">
+
+                    <Image Source="/Images/ShoppingCart.png" Height="176"/>
+
+                    <Menu Grid.Row="2" FontSize="20" FontFamily="Montserrat" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Menu.Background>
+                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+
+                            </LinearGradientBrush>
+                        </Menu.Background>
+                        <MenuItem  Header="Users" Name="usersMenuItem" Command="{Binding OpenWindowCommand}" CommandParameter="1">
+
+                        </MenuItem>
+                        <MenuItem Header="Categories" Name="categoryMenuItem" Command="{Binding OpenWindowCommand}" CommandParameter="2">
+
+                        </MenuItem>
+                        <MenuItem Header="Producers" Name="producerMenuItem" Command="{Binding OpenWindowCommand}" CommandParameter="3">
+
+                        </MenuItem>
+                        <MenuItem Header="Products" Name="productMenuItem" Command="{Binding OpenWindowCommand}" CommandParameter="4">
+
+                        </MenuItem>
+                        <MenuItem Header="Stocks" Name="stockMenuItem" Command="{Binding OpenWindowCommand}" CommandParameter="5">
+
+                        </MenuItem>
+                    </Menu>
+                </StackPanel>
+            </Grid>
+
+
+        </Border>
+
+
+    </Border>
 </Window>

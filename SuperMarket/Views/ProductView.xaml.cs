@@ -15,14 +15,15 @@ using System.Windows.Shapes;
 namespace SuperMarket.Views
 {
     /// <summary>
-    /// Interaction logic for AdminView.xaml
+    /// Interaction logic for ProductView.xaml
     /// </summary>
-    public partial class AdminView : Window
+    public partial class ProductView : Window
     {
-        public AdminView()
+        public ProductView()
         {
             InitializeComponent();
         }
+
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)

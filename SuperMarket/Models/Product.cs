@@ -10,15 +10,19 @@ namespace SuperMarket.Models
     {
         public int Id { get; set; }
 
+        public string Name { get; set; }
+
         public int? ProducerId { get; set; }
 
         public int? CategoryId { get; set; }
 
         public string Barcode { get; set; }
 
-        public Category Category { get; set; }
+        public bool IsActive { get; set; } = true;
 
-        public Producer Producer { get; set; }
+        public Category? Category { get; set; }
+
+        public Producer? Producer { get; set; }
 
         List<Stock> Stocks { get; set; } 
 

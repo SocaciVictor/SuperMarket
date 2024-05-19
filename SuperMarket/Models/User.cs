@@ -16,6 +16,8 @@ namespace SuperMarket.Models
 
         public int Type { get; set; }
 
+        public bool IsActive { get; set; } = true;
+
         List<Receipt>? ReceiptList { get; set; }
     }
 }

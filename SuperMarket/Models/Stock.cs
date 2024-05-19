@@ -24,6 +24,8 @@ namespace SuperMarket.Models
 
         public float SellingAmount { get; set; }
 
+        public bool IsActive { get; set; } = true;
+
         public Product Product { get; set; }
     }
 }

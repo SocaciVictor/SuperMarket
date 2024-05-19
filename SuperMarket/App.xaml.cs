@@ -1,5 +1,4 @@
-﻿using System.Configuration;
-using System.Data;
+﻿using System;
 using System.Windows;
 using SuperMarket.Views;
 
@@ -14,14 +13,13 @@ namespace SuperMarket
         {
             var loginView = new LoginView();
             loginView.Show();
-            loginView.IsVisibleChanged+=(s, ev)=>
+            loginView.IsVisibleChanged += (s, ev) =>
             {
                 if (loginView.IsVisible == false && loginView.IsLoaded)
                 {
-                   
+                    loginView.Close();
                 }
-            }
+            };
         }
     }
-
 }

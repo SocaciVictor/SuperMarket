@@ -15,6 +15,8 @@ namespace SuperMarket.Models
 
         public string Country { get; set; }
 
+        public bool IsActive { get; set; } = true;
+
         List<Product> Products { get; set; }
     }
 }

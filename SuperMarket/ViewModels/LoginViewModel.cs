@@ -1,12 +1,14 @@
 ﻿using SuperMarket.Helpers;
 using SuperMarket.Models;
 using SuperMarket.Models.BusinessLogicLayer;
+using SuperMarket.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace SuperMarket.ViewModels
@@ -60,6 +62,7 @@ namespace SuperMarket.ViewModels
         public LoginViewModel()
         {
             LoginCommnad = new RelayCommand(ExecuteLoginCommnad, CanExecuteLoginCommand);
+            _userBLL = new UserBLL();
         }
 
         private bool CanExecuteLoginCommand(object obj)
@@ -80,12 +83,37 @@ namespace SuperMarket.ViewModels
 
         private void ExecuteLoginCommnad(object obj)
         {
-            List<User> users = _userBLL.GetAllUsers();
-            var result = users.Where(p => p.Name == Username);
-            if (result.First().Type == 0)
+            var users = _userBLL.GetAllUsers();
+            var user = users.FirstOrDefault(p => p.Name == Username);
+
+            if (user != null && user.Password == new System.Net.NetworkCredential(string.Empty, Password).Password)
             {
-                
+                Application.Current.Dispatcher.Invoke(() =>
+                {
+                    Window window;
+                    if (user.Type == 0)
+                    {
+                        window = new AdminView();
+                    }
+                    else if (user.Type == 1)
+                    {
+                        window = new CashierView();
+                    }
+                    else
+                    {
+                        ErrorMessage = "Invalid user type.";
+                        return;
+                    }
+
+                    IsViewVisible = false;
+                    window.Show();
+                });
+            }
+            else
+            {
+                ErrorMessage = "Invalid username or password.";
             }
         }
     }
 }
+

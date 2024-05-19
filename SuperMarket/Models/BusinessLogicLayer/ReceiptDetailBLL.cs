@@ -12,5 +12,10 @@ namespace SuperMarket.Models.BusinessLogicLayer
     {
         private SupermarketDBContext context = new SupermarketDBContext();
         public ObservableCollection<ReceiptDetail> ReceiptDetailsList { get; set; }
+
+        public ReceiptDetailBLL()
+        {
+            ReceiptDetailsList = new ObservableCollection<ReceiptDetail>();
+        }
     }
 }

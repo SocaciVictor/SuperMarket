@@ -23,18 +23,18 @@ namespace SuperMarket.ViewModels
                     ProductView prod = new ProductView();
                     prod.ShowDialog();
                     break;
-                //case "2":
-                //    PhoneView phone = new PhoneView();
-                //    phone.ShowDialog();
-                //    break;
-                //case "3":
-                //    PersonsWOPhonesView persWoPhone = new PersonsWOPhonesView();
-                //    persWoPhone.ShowDialog();
-                //    break;
-                //case "4":
-                //    //AnotherPersonView anotherPers = new AnotherPersonView();
-                //    //anotherPers.ShowDialog();
-                //    break;
+                case "2":
+                    UserView user = new UserView();
+                    user.ShowDialog();
+                    break;
+                case "3":
+                    CategoryView category = new CategoryView();
+                    category.ShowDialog();
+                    break;
+                case "4":
+                    ProducerView producer = new ProducerView();
+                    producer.ShowDialog();
+                    break;
             }
         }
     }

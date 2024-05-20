@@ -11,22 +11,21 @@ using System.Windows.Input;
 
 namespace SuperMarket.ViewModels
 {
-    public class UserViewModel: BasePropertyChanged
+    public class ProducerViewModel : BasePropertyChanged
     {
-        private UserBLL _userBLL;
-        public UserViewModel()
+        private ProducerBLL _producerBLL;
+        public ProducerViewModel()
         {
-            _userBLL = new UserBLL();
-            UsersList = _userBLL.GetAllUsers();
+            _producerBLL = new ProducerBLL();
+            ProducerList = _producerBLL.GetAllProducers();
         }
 
         #region Data Members
 
-
-        public ObservableCollection<User> UsersList
+        public ObservableCollection<Producer> ProducerList 
         {
-            get => _userBLL.UsersList;
-            set => _userBLL.UsersList = value;
+            get => _producerBLL.ProducersList;
+            set => _producerBLL.ProducersList = value;
         }
 
         private string errorMessage;
@@ -44,11 +43,10 @@ namespace SuperMarket.ViewModels
 
         #region Command Region
 
-
         public void AddMethod(object obj)
         {
-            _userBLL.AddMethod(obj);
-            ErrorMessage = _userBLL.ErrorMessage;
+            _producerBLL.AddMethod(obj);
+            ErrorMessage = _producerBLL.ErrorMessage;
         }
 
         private ICommand addCommand;
@@ -66,8 +64,8 @@ namespace SuperMarket.ViewModels
 
         public void UpdateMethod(object obj)
         {
-            _userBLL.UpdateMethod(obj);
-            ErrorMessage = _userBLL.ErrorMessage;
+            _producerBLL.UpdateMethod(obj);
+            ErrorMessage = _producerBLL.ErrorMessage;
         }
 
         private ICommand updateCommand;
@@ -83,11 +81,10 @@ namespace SuperMarket.ViewModels
             }
         }
 
-
         public void DeleteMethod(object obj)
         {
-            _userBLL.DeleteMethod(obj);
-            ErrorMessage = _userBLL.ErrorMessage;
+            _producerBLL.DeleteMethod(obj);
+            ErrorMessage = _producerBLL.ErrorMessage;
         }
 
         private ICommand deleteCommand;
@@ -103,9 +100,6 @@ namespace SuperMarket.ViewModels
             }
         }
 
-
-
         #endregion
-
     }
 }

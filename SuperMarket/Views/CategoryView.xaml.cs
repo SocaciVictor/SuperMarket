@@ -15,15 +15,14 @@ using System.Windows.Shapes;
 namespace SuperMarket.Views
 {
     /// <summary>
-    /// Interaction logic for UserView.xaml
+    /// Interaction logic for CategoryView.xaml
     /// </summary>
-    public partial class UserView : Window
+    public partial class CategoryView : Window
     {
-        public UserView()
+        public CategoryView()
         {
             InitializeComponent();
         }
-
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -40,7 +39,7 @@ namespace SuperMarket.Views
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-           Close();
+            Close();
         }
     }
 }

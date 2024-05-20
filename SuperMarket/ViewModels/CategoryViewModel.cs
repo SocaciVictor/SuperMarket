@@ -11,22 +11,14 @@ using System.Windows.Input;
 
 namespace SuperMarket.ViewModels
 {
-    public class UserViewModel: BasePropertyChanged
+    public class CategoryViewModel: BasePropertyChanged
     {
-        private UserBLL _userBLL;
-        public UserViewModel()
+        private CategoryBLL _categoryBLL;
+
+        public CategoryViewModel()
         {
-            _userBLL = new UserBLL();
-            UsersList = _userBLL.GetAllUsers();
-        }
-
-        #region Data Members
-
-
-        public ObservableCollection<User> UsersList
-        {
-            get => _userBLL.UsersList;
-            set => _userBLL.UsersList = value;
+            _categoryBLL = new CategoryBLL();
+            CategoriesList = _categoryBLL.GetAllCategories();
         }
 
         private string errorMessage;
@@ -40,15 +32,25 @@ namespace SuperMarket.ViewModels
             }
         }
 
+
+        #region Data Members
+
+        public ObservableCollection<Category> CategoriesList 
+        {
+            get => _categoryBLL.CategoriesList; 
+            set => _categoryBLL.CategoriesList = value;
+        }
+
         #endregion
+
 
         #region Command Region
 
 
         public void AddMethod(object obj)
         {
-            _userBLL.AddMethod(obj);
-            ErrorMessage = _userBLL.ErrorMessage;
+            _categoryBLL.AddMethod(obj);
+            ErrorMessage = _categoryBLL.ErrorMessage;
         }
 
         private ICommand addCommand;
@@ -66,8 +68,8 @@ namespace SuperMarket.ViewModels
 
         public void UpdateMethod(object obj)
         {
-            _userBLL.UpdateMethod(obj);
-            ErrorMessage = _userBLL.ErrorMessage;
+            _categoryBLL.UpdateMethod(obj);
+            ErrorMessage = _categoryBLL.ErrorMessage;
         }
 
         private ICommand updateCommand;
@@ -86,8 +88,8 @@ namespace SuperMarket.ViewModels
 
         public void DeleteMethod(object obj)
         {
-            _userBLL.DeleteMethod(obj);
-            ErrorMessage = _userBLL.ErrorMessage;
+            _categoryBLL.DeleteMethod(obj);
+            ErrorMessage = _categoryBLL.ErrorMessage;
         }
 
         private ICommand deleteCommand;
@@ -106,6 +108,5 @@ namespace SuperMarket.ViewModels
 
 
         #endregion
-
     }
 }

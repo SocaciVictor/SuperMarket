@@ -68,7 +68,7 @@ namespace SuperMarket.ViewModels
         private bool CanExecuteLoginCommand(object obj)
         {
             bool validDate;
-            List<User> users = _userBLL.GetAllUsers();
+            List<User> users = _userBLL.GetAllUsersList();
             var result = users.Where(p => p.Name == Username);
             if (result == null)
             {
@@ -83,7 +83,7 @@ namespace SuperMarket.ViewModels
 
         private void ExecuteLoginCommnad(object obj)
         {
-            var users = _userBLL.GetAllUsers();
+            var users = _userBLL.GetAllUsersList();
             var user = users.FirstOrDefault(p => p.Name == Username);
 
             if (user != null && user.Password == new System.Net.NetworkCredential(string.Empty, Password).Password)

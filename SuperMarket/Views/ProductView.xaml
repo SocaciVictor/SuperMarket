@@ -71,9 +71,7 @@
                     <StackPanel.Resources>
                         <localConverter:ProductConvert x:Key="productConvert" />
                         <localConverter:CategoryIntoIdCategory x:Key="CategoryIdToIntConverter" />
-                        <localConverter:ProducerIntoIdProducer x:Key="ProducerIntoIdProducer"/>
-                        <localConverter:CategoryIntoIdCategory x:Key="CategoryIdToNameConverter" />
-                        <localConverter:ProducerIntoIdProducer x:Key="ProducerIdToNameConverter" />
+                        <localConverter:ProducerIntoIdProducer x:Key="ProducerIntoIdProducer" />
                     </StackPanel.Resources>
                     <WrapPanel>
                         <Button Background="Transparent" Content="Add" Margin="15" Width="100" Height="30" Command="{Binding AddCommand}">
@@ -132,8 +130,8 @@
                     <DataGrid Name="productsGrid" Margin="0,15,0,0" AutoGenerateColumns="False" Height="148" Background="Transparent"
           ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding ProductsList}">
                         <DataGrid.Resources>
-                            <localConverter:CategoryIntoIdCategory x:Key="CategoryIdToNameConverter" />
-                            <localConverter:ProducerIntoIdProducer x:Key="ProducerIdToNameConverter" />
+                            <localConverter:CategoryIdToNameConverter x:Key="CategoryIdToNameConverter" />
+                            <localConverter:ProducerIdToNameConverter x:Key="ProducerIdToNameConverter" />
                         </DataGrid.Resources>
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
@@ -141,14 +139,14 @@
                             <DataGridTemplateColumn Header="Category">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding CategoryId, Converter={StaticResource CategoryIdToNameConverter}}" />
+                                        <TextBlock Text="{Binding Converter={StaticResource CategoryIdToNameConverter}}" />
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
                             <DataGridTemplateColumn Header="Producer">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding ProducerId, Converter={StaticResource ProducerIdToNameConverter }}" />
+                                        <TextBlock Text="{Binding Converter={StaticResource ProducerIdToNameConverter }}" />
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>

@@ -1,5 +1,4 @@
-﻿using SuperMarket.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,14 +15,12 @@ using System.Windows.Shapes;
 namespace SuperMarket.Views
 {
     /// <summary>
-    /// Interaction logic for CashierView.xaml
+    /// Interaction logic for StockView.xaml
     /// </summary>
-    public partial class CashierView : Window
+    public partial class StockView : Window
     {
-        public CashierView(object param)
+        public StockView()
         {
-            CashierViewModel dataContext = new CashierViewModel(param);
-            DataContext = dataContext;
             InitializeComponent();
         }
 
@@ -42,7 +39,8 @@ namespace SuperMarket.Views
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            Close();
         }
+
     }
 }

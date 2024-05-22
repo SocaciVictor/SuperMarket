@@ -93,6 +93,11 @@
                         <MenuItem Header="Stocks" Name="stockMenuItem" Command="{Binding OpenWindowCommand}" CommandParameter="5">
 
                         </MenuItem>
+
+                        <MenuItem Header="Receipt" Name="receiptMenuItem" Command="{Binding OpenWindowCommand}" CommandParameter="6">
+
+                        </MenuItem>
+
                     </Menu>
                 </StackPanel>
             </Grid>

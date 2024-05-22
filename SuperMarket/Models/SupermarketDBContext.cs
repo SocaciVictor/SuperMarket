@@ -20,5 +20,12 @@ namespace SuperMarket.Models
         {
             optionsBuilder.UseSqlServer(@"Server=DESKTOP-58SD638;Database=Supermarket2024;Trusted_Connection=SSPI;Encrypt=false;TrustServerCertificate=true");
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ReceiptDetail>().HasOne(rd => rd.Product).WithMany().HasForeignKey(rd => rd.IdProduct);
+            modelBuilder.Entity<ReceiptDetail>().HasOne(rd => rd.Receipt).WithMany(r => r.ReceiptDetails).HasForeignKey(rd => rd.ReceiptId);
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

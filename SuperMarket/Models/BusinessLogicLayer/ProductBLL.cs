@@ -128,5 +128,19 @@ namespace SuperMarket.Models.BusinessLogicLayer
             return result;
         }
 
-}
+        public string GetProductName(int product)
+        {
+            Product p = context.Products.Where(item => item.Id == product).FirstOrDefault();
+
+            return p?.Name;
+        }
+
+        public Product GetProduct(int product)
+        {
+            Product p = context.Products.Where(item => item.Id == product).FirstOrDefault();
+
+            return p;
+        }
+
+    }
 }

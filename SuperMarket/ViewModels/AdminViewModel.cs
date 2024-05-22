@@ -35,6 +35,10 @@ namespace SuperMarket.ViewModels
                     ProducerView producer = new ProducerView();
                     producer.ShowDialog();
                     break;
+                case "5":
+                    StockView stock = new StockView();
+                    stock.ShowDialog();
+                    break;
             }
         }
     }

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SuperMarket.Models;
 
@@ -11,9 +12,11 @@ using SuperMarket.Models;
 namespace SuperMarket.Migrations
 {
     [DbContext(typeof(SupermarketDBContext))]
-    partial class SupermarketDBContextModelSnapshot : ModelSnapshot
+    [Migration("20240522214112_ForeignKey")]
+    partial class ForeignKey
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -102,11 +105,11 @@ namespace SuperMarket.Migrations
 
             modelBuilder.Entity("SuperMarket.Models.Receipt", b =>
                 {
-                    b.Property<int>("ReceiptId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ReceiptId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
@@ -120,7 +123,7 @@ namespace SuperMarket.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    b.HasKey("ReceiptId");
+                    b.HasKey("Id");
 
                     b.HasIndex("UserId");
 
@@ -261,7 +264,7 @@ namespace SuperMarket.Migrations
                         .IsRequired();
 
                     b.HasOne("SuperMarket.Models.Receipt", "Receipt")
-                        .WithMany("ReceiptDetails")
+                        .WithMany()
                         .HasForeignKey("ReceiptId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -280,11 +283,6 @@ namespace SuperMarket.Migrations
                         .IsRequired();
 
                     b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("SuperMarket.Models.Receipt", b =>
-                {
-                    b.Navigation("ReceiptDetails");
                 });
 #pragma warning restore 612, 618
         }

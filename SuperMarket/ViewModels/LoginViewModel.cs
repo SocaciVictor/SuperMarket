@@ -97,7 +97,7 @@ namespace SuperMarket.ViewModels
                     }
                     else if (user.Type == 1)
                     {
-                        window = new CashierView();
+                        window = new CashierView(user);
                     }
                     else
                     {

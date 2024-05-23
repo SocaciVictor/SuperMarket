@@ -39,6 +39,10 @@ namespace SuperMarket.ViewModels
                     StockView stock = new StockView();
                     stock.ShowDialog();
                     break;
+                case "6":
+                    ReceiptView receipt = new ReceiptView();
+                    receipt.ShowDialog();
+                    break;
             }
         }
     }

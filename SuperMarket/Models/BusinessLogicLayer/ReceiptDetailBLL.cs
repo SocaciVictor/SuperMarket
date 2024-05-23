@@ -45,5 +45,16 @@ namespace SuperMarket.Models.BusinessLogicLayer
             }
             
         }
+
+        public ObservableCollection<ReceiptDetail> GetReceiptDetailWithCurrentReceiptId(Receipt currentReceipt)
+        {
+            ObservableCollection<ReceiptDetail> result = new ObservableCollection<ReceiptDetail>();
+            var receiptDetails = ReceiptDetailsList.Where(r => r.ReceiptId == currentReceipt.ReceiptId).ToList();
+            foreach (var receiptDetail in receiptDetails)
+            {
+                result.Add(receiptDetail);
+            }
+            return result;
+        }
     }
 }

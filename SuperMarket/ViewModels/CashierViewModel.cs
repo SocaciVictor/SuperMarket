@@ -266,7 +266,9 @@ namespace SuperMarket.ViewModels
         private void UpdateReceiptDetail(object param)
         {
             Receipt receipt = param as Receipt;
+            receipt.ReceiptDate = DateTime.Now;
             receipt.UserId = currentUser.Id;
+            receipt.ReceiptAmount = (float)SumaTotala;
             ReceiptsList.Add(receipt);
             _receiptBLL.AddMethod(receipt);
             int id  = _receiptBLL.ReceiptsList.Last().ReceiptId;

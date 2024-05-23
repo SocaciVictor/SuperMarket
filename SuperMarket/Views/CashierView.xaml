@@ -25,7 +25,7 @@
            BorderBrush="#8DECB4"
            BorderThickness="5"
            >
-           
+
             <Canvas>
 
                 <TextBlock Text="Cashier"
@@ -40,27 +40,27 @@
                         BorderThickness="0"
                         Content="-"
                         Foreground="White"
-                        FontSize="16"
+                        FontSize="30"
                         FontFamily="Montserrat"
                         Cursor="Hand"
-                        Canvas.Left="922"
-                        Canvas.Top="9"
-                        Click="btnMinimize_Click" Height="30" Width="32"/>
+                        Canvas.Left="934"
+                        Canvas.Top="5"
+                        Click="btnMinimize_Click" Height="30" Width="25" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
                 <Button x:Name="btnClose"
                         Background="#FFF455"
                         BorderThickness="0"
                         Content="X"
                         Foreground="White"
-                        FontSize="12"
+                        FontSize="30"
                         FontFamily="Montserrat"
                         Cursor="Hand"
                         Canvas.Left="959"
-                        Canvas.Top="10"
-                        Click="btnClose_Click" Height="31" Width="21"/>             
+                        Canvas.Top="5"
+                        Click="btnClose_Click" Height="31" Width="21"/>
                 <Image Source="/Images/ShoppingCart.png" Height="82" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Top="5" Canvas.Left="120"/>
 
-             
+
 
                 <DockPanel Canvas.Left="10" Canvas.Top="80">
                     <TextBlock Text="Product name" Width="135" FontSize="12" FontWeight="Medium"/>
@@ -149,7 +149,7 @@
                                                 </TextBlock>
                                                 <TextBlock Text="{Binding Subtotal, UpdateSourceTrigger=PropertyChanged}" FontWeight="Medium" Margin="4 0 0 0"/>
                                                 <TextBlock Text="$" FontWeight="Medium"/>
-                                                
+
                                             </DockPanel>
                                         </DataTemplate>
                                     </ItemsControl.ItemTemplate>

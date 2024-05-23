@@ -103,9 +103,9 @@ namespace SuperMarket.Models.BusinessLogicLayer
                 }
                 if (stockDelete.Amount == 0) {
                     stockDelete.IsActive = false;
+                    StocksList.Remove(stockDelete);
                 }
                 context.SaveChanges();
-                StocksList.Remove(stockDelete);
             }
         }
     }

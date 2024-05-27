@@ -29,10 +29,15 @@ namespace SuperMarket.ViewModels
 
         #region Data Members
 
+        private ObservableCollection<Product> _productList;
         public ObservableCollection<Product>? ProductsList
         {
-            get => _productsBLL.ProductsList;
-            set => _productsBLL.ProductsList = value;
+            get => _productList;
+            set 
+            {
+                _productList = value;
+                NotifyPropertyChanged(nameof(ProductsList));
+            }
         }
 
         public ObservableCollection<Producer>? ProducersList
@@ -109,6 +114,7 @@ namespace SuperMarket.ViewModels
         {
             _productsBLL.AddMethod(obj);
             ErrorMessage = _productsBLL.ErrorMessage;
+            ProductsList = _productsBLL.GetAllProducts();
         }
 
         private ICommand addCommand;
@@ -127,6 +133,7 @@ namespace SuperMarket.ViewModels
         public void UpdateMethod(object obj)
         {
             _productsBLL.UpdateMethod(obj);
+            ProductsList = _productsBLL.GetAllProducts();
             ErrorMessage = _productsBLL.ErrorMessage;
         }
 

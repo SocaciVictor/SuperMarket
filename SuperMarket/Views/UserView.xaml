@@ -111,7 +111,7 @@
                     </WrapPanel>
 
                     <DataGrid Name="usersGrid" Margin="0,15,0,0" AutoGenerateColumns="False" Height="148" Background="Transparent"
-      ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding UsersList}">
+      ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding UsersList, Mode=OneWay}">
                         <DataGrid.Resources>
                            
                         </DataGrid.Resources>

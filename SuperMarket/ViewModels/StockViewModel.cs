@@ -27,10 +27,15 @@ namespace SuperMarket.ViewModels
 
         #region Data Members
 
+        private ObservableCollection<Stock> _stockList;
         public ObservableCollection<Stock> StockList
         {
             get => _stockBLL.StocksList;
-            set => _stockBLL.StocksList = value; 
+            set
+            { 
+                _stockBLL.StocksList = value; 
+                NotifyPropertyChanged(nameof(StockList));
+            }
         }
 
         public ObservableCollection<Product> ProductList
@@ -50,9 +55,16 @@ namespace SuperMarket.ViewModels
             }
         }
 
+
+        #endregion
+
+        #region Command Region
+
+
         public void AddMethod(object obj)
         {
             _stockBLL.AddMethod(obj);
+            StockList = _stockBLL.GetAllStocks();
             ErrorMessage = _stockBLL.ErrorMessage;
         }
 
@@ -68,10 +80,6 @@ namespace SuperMarket.ViewModels
                 return addCommand;
             }
         }
-
-        #endregion
-
-        #region Command Region
         #endregion
     }
 }

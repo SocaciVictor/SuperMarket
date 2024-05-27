@@ -22,11 +22,15 @@ namespace SuperMarket.ViewModels
 
         #region Data Members
 
-
+        private ObservableCollection<User> _usersList;
         public ObservableCollection<User> UsersList
         {
-            get => _userBLL.UsersList;
-            set => _userBLL.UsersList = value;
+            get => _usersList;
+            set
+            {
+                _usersList = value;
+                NotifyPropertyChanged(nameof(UsersList));
+            }
         }
 
         private string errorMessage;

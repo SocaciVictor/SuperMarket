@@ -44,7 +44,11 @@ namespace SuperMarket.Models.BusinessLogicLayer
                 else if (IsInDataBase(stock) == true)
                 {
                     ErrorMessage = "Stock-ul exista deja in baza de date!";
-                } 
+                }
+                else if (stock.ExpirationDate > stock.SupplyDate)
+                {
+                    ErrorMessage = "Data de expirare trebuie sa fie mai mare decat data de aprovizionare";
+                }
                 else
                 {
                     stock.SellingAmount = (float)(stock.PurchasePrice + 0.25 * stock.PurchasePrice);

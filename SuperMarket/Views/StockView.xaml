@@ -85,10 +85,6 @@
                                 </MultiBinding>
                             </Button.CommandParameter>
                         </Button>
-                        <Button  Background="Transparent" Content="Update" Margin="15" Width="100" Height="30" Command="{Binding UpdateCommand}" 
-                        CommandParameter="{Binding ElementName=stocksGrid, Path=SelectedItem}" />
-                        <Button Background="Transparent" Content="Delete" Margin="15" Width="100" Height="30" Command="{Binding DeleteCommand}" 
-                        CommandParameter="{Binding ElementName=stocksGrid, Path=SelectedItem}" />
                     </WrapPanel>
 
                     <WrapPanel Margin="0,15,0,0">

@@ -35,10 +35,15 @@ namespace SuperMarket.ViewModels
 
         #region Data Members
 
+        private ObservableCollection<Category> categoriesList;
         public ObservableCollection<Category> CategoriesList 
         {
-            get => _categoryBLL.CategoriesList; 
-            set => _categoryBLL.CategoriesList = value;
+            get => categoriesList;
+            set
+            {
+                categoriesList = value;
+                NotifyPropertyChanged(nameof(CategoriesList));
+            }
         }
 
         #endregion
@@ -50,6 +55,7 @@ namespace SuperMarket.ViewModels
         public void AddMethod(object obj)
         {
             _categoryBLL.AddMethod(obj);
+            CategoriesList = _categoryBLL.GetAllCategories();
             ErrorMessage = _categoryBLL.ErrorMessage;
         }
 
@@ -69,6 +75,7 @@ namespace SuperMarket.ViewModels
         public void UpdateMethod(object obj)
         {
             _categoryBLL.UpdateMethod(obj);
+            CategoriesList = _categoryBLL.GetAllCategories();
             ErrorMessage = _categoryBLL.ErrorMessage;
         }
 
@@ -89,6 +96,7 @@ namespace SuperMarket.ViewModels
         public void DeleteMethod(object obj)
         {
             _categoryBLL.DeleteMethod(obj);
+            CategoriesList = _categoryBLL.GetAllCategories();
             ErrorMessage = _categoryBLL.ErrorMessage;
         }
 

@@ -141,14 +141,14 @@
                             <DataGridTemplateColumn Header="Category">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding Converter={StaticResource CategoryIdToNameConverter}}" />
+                                        <TextBlock Text="{Binding Converter={StaticResource CategoryIdToNameConverter}, UpdateSourceTrigger=PropertyChanged}" />
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
                             <DataGridTemplateColumn Header="Producer">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding Converter={StaticResource ProducerIdToNameConverter }}" />
+                                        <TextBlock Text="{Binding Converter={StaticResource ProducerIdToNameConverter }, UpdateSourceTrigger=PropertyChanged}" />
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>

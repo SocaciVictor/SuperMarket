@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace SuperMarket.ViewModels
@@ -43,6 +44,30 @@ namespace SuperMarket.ViewModels
                     ReceiptView receipt = new ReceiptView();
                     receipt.ShowDialog();
                     break;
+            }
+        }
+
+        private ICommand _backToLoginCommand;
+        public ICommand BackToLoginCommand
+        {
+            get
+            {
+                if (_backToLoginCommand == null)
+                    _backToLoginCommand = new RelayCommand(BackToLogin);
+                return _backToLoginCommand;
+            }
+        }
+
+        private void BackToLogin(object obj)
+        {
+
+            LoginView loginView = new LoginView();
+            loginView.Show();
+
+
+            if (obj is Window currentView)
+            {
+                currentView.Close();
             }
         }
     }

@@ -10,6 +10,7 @@ using System.Collections.ObjectModel;
 using System.Windows.Input;
 using System.Windows.Data;
 using System.Windows;
+using SuperMarket.Views;
 
 namespace SuperMarket.ViewModels
 {
@@ -296,6 +297,30 @@ namespace SuperMarket.ViewModels
                 if (_backToCreateCommand == null)
                     _backToCreateCommand = new RelayCommand(UpdateReceiptDetail);
                 return _backToCreateCommand;
+            }
+        }
+
+        private ICommand _backToLoginCommand;
+        public ICommand BackToLoginCommand
+        {
+            get
+            {
+                if (_backToLoginCommand == null)
+                    _backToLoginCommand = new RelayCommand(BackToLogin);
+                return _backToLoginCommand;
+            }
+        }
+
+        private void BackToLogin(object obj)
+        {
+           
+            LoginView loginView = new LoginView();
+            loginView.Show();
+
+           
+            if (obj is Window currentView)
+            {
+                currentView.Close();
             }
         }
 

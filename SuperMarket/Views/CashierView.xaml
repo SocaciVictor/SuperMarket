@@ -166,9 +166,21 @@
                             </StackPanel>
                         </ScrollViewer>
                         <Button Content="OK" FontWeight="Bold" FontSize="20" Cursor="Hand" Margin="0 5 0 0" Width="100" Height="35"
-                       Command="{Binding BackToCreateCommand}" CommandParameter="{Binding CreatedReceipt}" Visibility="{Binding BacktoCreate}"  Foreground="#252A34"/>
+                       Command="{Binding BackToCreateCommand}" CommandParameter="{Binding CreatedReceipt}" Foreground="#252A34"/>
                     </StackPanel>
                 </Border>
+
+                <!-- Creating a button that you can go back to the login view -->
+
+                <Button x:Name="btnBackToLogin" Content="Logout" 
+                        FontWeight="Bold" FontSize="20" Cursor="Hand" 
+                        Width="150" Height="35"
+                        BorderThickness="0"
+                        Background="#FFF455"
+                        FontFamily="Montserrat"
+                       Command="{Binding BackToLoginCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"  
+                        Foreground="white" Canvas.Left="820" Canvas.Top="529"/>
+
             </Canvas>
 
 

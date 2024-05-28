@@ -99,7 +99,21 @@
                         </MenuItem>
 
                     </Menu>
+
+                    <Button x:Name="btnBackToLogin" Content="Logout"
+                         FontWeight="Bold" FontSize="20" Cursor="Hand" 
+                         Width="150" Height="35"
+                         BorderThickness="0"
+                         Margin="150"
+                         Background="#FFF455"
+                         FontFamily="Montserrat"
+                        Command="{Binding BackToLoginCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"  
+                         Foreground="white" Canvas.Left="820" Canvas.Top="529"/>
+
+
                 </StackPanel>
+
+                
             </Grid>
 
 
